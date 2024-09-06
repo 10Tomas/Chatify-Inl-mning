@@ -1,7 +1,6 @@
 import Register from "./Components/Register"
 import Login from "./Components/Login"
 import Chat from "./Components/Chat"
-import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./Components/ProtectedRoute";
 
