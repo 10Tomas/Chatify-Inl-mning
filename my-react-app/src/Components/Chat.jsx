@@ -11,7 +11,7 @@ const Chat = () => {
   const fakeChat = [
     { text: "Tjena", avatar: "https://i.pravatar.cc/100?img=3", username: "ChatBot", isBot: true },
     { text: "Vad gör du?", avatar: "https://i.pravatar.cc/100?img=5", username: "ChatBot", isBot: true },
-    { text: "Svara mig!", avatar: "https://i.pravatar.cc/100?img=33", username: "ChatBot", isBot: true }
+    { text: "Hjälp mig!", avatar: "https://i.pravatar.cc/100?img=33", username: "ChatBot", isBot: true }
   ];
 
   useEffect(() => {
