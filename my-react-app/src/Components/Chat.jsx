@@ -9,9 +9,20 @@ const Chat = () => {
   const token = localStorage.getItem('userToken');
 
   const fakeChat = [
-    { text: "Tjena", avatar: "https://i.pravatar.cc/100?img=3", username: "ChatBot", isBot: true },
-    { text: "Vad gör du?", avatar: "https://i.pravatar.cc/100?img=5", username: "ChatBot", isBot: true },
-    { text: "Hjälp mig!", avatar: "https://i.pravatar.cc/100?img=33", username: "ChatBot", isBot: true }
+    { text: "Hej!", 
+      avatar: "https://i.pravatar.cc/100?img=3", 
+      username: "ChatBot", 
+      isBot: true },
+    
+    { text: "Hur mår du?", 
+      avatar: "https://i.pravatar.cc/100?img=3", 
+      username: "ChatBot", 
+      isBot: true },
+    
+    { text: "Vad kan jag hjälpa dig med?", 
+      avatar: "https://i.pravatar.cc/100?img=3", 
+      username: "ChatBot", 
+      isBot: true }
   ];
 
   useEffect(() => {
@@ -44,7 +55,11 @@ const Chat = () => {
   const handleChat = async () => {
     if (!postMessage.trim()) return;
 
-    const newMessage = { text: postMessage, conversationId: null };
+    const newMessage = { 
+      text: postMessage, 
+      conversationId: null,
+      username: decodedJwt.user, 
+    };
 
     try {
       const res = await fetch('https://chatify-api.up.railway.app/messages', {
@@ -57,7 +72,7 @@ const Chat = () => {
       });
 
       const data = await res.json();
-      setMessages([...messages, data.latestMessage]);
+      setMessages([...messages, { ...data.latestMessage, username: newMessage.username }]);
       setPostMessage("");
     } catch (error) {
       console.error("Error sending message:", error);
@@ -93,7 +108,8 @@ const Chat = () => {
           {messages.map((msg, index) => (
             <li key={index} className={msg.isBot ? styles.botChat : styles.userChat}>
               <div>
-                {msg.text}
+                <img src={msg.isBot ? msg.avatar : decodedJwt.avatar} alt="avatar" />
+                <strong>{msg.username}:</strong> {msg.text} {}
                 {!msg.isBot && (
                   <button onClick={() => handleDelete(msg.id)} className={styles.btn}>Delete</button>
                 )}

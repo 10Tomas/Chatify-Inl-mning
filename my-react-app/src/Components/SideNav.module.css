@@ -1,37 +1,45 @@
-.toggle-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    margin: 10px;
-  }
-  
-  .sidenav-container {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 200px;
-    height: 100%;
-    background-color: #f8f9fa;
-    border-left: 1px solid #ddd;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .logout-button {
-    background-color: #ff3b3b;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: auto;
-  }
-  
+.sidenavContainer {
+  position: fixed;
+  right: 20px; 
+  top: 50%; 
+  transform: translateY(-50%); 
+  width: 200px; 
+  background-color: rgba(36, 8, 79, 0.877); 
+  color: #ffffff; 
+  display: flex; 
+  flex-direction: column; 
+  padding: 15px; 
+  border-radius: 8px; 
+  box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.3); 
+  z-index: 1000; 
+}
+
+.toggleButton {
+  background-color: rgba(36, 8, 79, 0.877); 
+  color: #ffffff;
+  border: none; 
+  padding: 10px 15px; 
+  cursor: pointer; 
+  margin-bottom: 10px; 
+  border-radius: 5px; 
+  font-size: 16px; 
+  width: auto;
+  margin-left: auto; 
+}
+
+.logoutButton {
+  background-color: rgba(36, 8, 79, 0.877); 
+  color: #ffffff; 
+  border: none;
+  padding: 10px 15px; 
+  cursor: pointer;
+  border-radius: 5px; 
+  font-size: 16px; 
+  margin-top: auto; 
+  width: 100%; 
+  transition: background-color 0.3s; 
+}
+
+.logoutButton:hover, .toggleButton:hover {
+  background-color: rgba(36, 8, 79, 0.6);
+}
